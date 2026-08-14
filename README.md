@@ -1,14 +1,74 @@
-# Welcome to your Lovable project
+# Amos Kali Foundation Website
+
+Act as a Senior UI/UX Designer and Senior React Engineer.
+
+Build a clean, modern website for AMOS KALI FOUNDATION using the attached image as the exact visual inspiration.
+
+Keep the design simple, elegant, spacious, and very close to the reference image — especially the navigation, hero, typography, cards, imagery, colors, spacing, campaigns, statistics, and footer.
+
+Pages
+
+Build only these main pages:
+
+Home
+
+About Us
+
+Programs
+
+Causes
+
+Blog
+
+Contact
+
+Donate
+
+The Home page should contain the main sections shown in the reference:
+
+Hero → Trust/Values → Impact Statistics → About → Programs → Causes/Campaigns → Why Choose Us → Latest Blog → Volunteer CTA → Newsletter → Footer.
+
+Use AMOS KALI FOUNDATION branding and original content.
+
+Use:
+
+Warm white background
+
+Dark green primary color
+
+Orange accent
+
+Elegant typography
+
+High-quality African humanitarian images
+
+Clean cards
+
+Subtle shadows and borders
+
+Smooth, minimal animations
+
+Do not use emojis.
+
+Use Lucide React / React icon libraries for all icons and use 21st.dev components where appropriate.
+
+Make it fully responsive on desktop, tablet, and mobile.
+
+Keep the website simple like the reference — not a complicated SaaS design.
+
+Use clean, reusable React/TypeScript components and build the entire website to a polished, professional standard.
+
+The attached image is the visual benchmark. Match its overall look, structure, spacing, and quality as closely as possible while creating an original AMOS KALI FOUNDATION website.
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/00bb5adb-6b23-40df-99ea-f6450caa93a3).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +80,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS

@@ -4,7 +4,7 @@ import type { Post } from "@/lib/site-data";
 
 export function PostCard({ post }: { post: Post }) {
   return (
-    <article className="group overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-shadow hover:shadow-soft">
+    <article className="group overflow-hidden rounded-lg border border-border bg-card shadow-card transition-colors hover:border-primary/25">
       <div className="aspect-[10/7] overflow-hidden">
         <img
           src={post.image}
@@ -12,15 +12,15 @@ export function PostCard({ post }: { post: Post }) {
           loading="lazy"
           width={800}
           height={560}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
         />
       </div>
       <div className="p-6">
-        <p className="text-xs font-semibold text-muted-foreground">
-          {post.date} <span className="mx-2 text-border">|</span>
+        <p className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
+          {post.date} <span className="mx-2 text-border">/</span>
           <span className="text-accent">{post.category}</span>
         </p>
-        <h3 className="mt-3 font-display text-lg font-bold leading-snug">{post.title}</h3>
+        <h3 className="mt-3 font-display text-xl font-semibold leading-tight text-primary">{post.title}</h3>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
         <Link
           to="/blog"

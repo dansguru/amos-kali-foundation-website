@@ -12,10 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as BlogRouteImport } from './routes/blog'
-import { Route as CausesRouteImport } from './routes/causes'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DonateRouteImport } from './routes/donate'
 import { Route as ProgramsRouteImport } from './routes/programs'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -30,11 +30,6 @@ const AboutRoute = AboutRouteImport.update({
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CausesRoute = CausesRouteImport.update({
-  id: '/causes',
-  path: '/causes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -52,61 +47,78 @@ const ProgramsRoute = ProgramsRouteImport.update({
   path: '/programs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
-  '/causes': typeof CausesRoute
   '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
   '/programs': typeof ProgramsRoute
+  '/testimonials': typeof TestimonialsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
-  '/causes': typeof CausesRoute
   '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
   '/programs': typeof ProgramsRoute
+  '/testimonials': typeof TestimonialsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
-  '/causes': typeof CausesRoute
   '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
   '/programs': typeof ProgramsRoute
+  '/testimonials': typeof TestimonialsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/blog' | '/causes' | '/contact' | '/donate' | '/programs'
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/contact'
+    | '/donate'
+    | '/programs'
+    | '/testimonials'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/about' | '/blog' | '/causes' | '/contact' | '/donate' | '/programs'
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/contact'
+    | '/donate'
+    | '/programs'
+    | '/testimonials'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/blog'
-    | '/causes'
     | '/contact'
     | '/donate'
     | '/programs'
+    | '/testimonials'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BlogRoute: typeof BlogRoute
-  CausesRoute: typeof CausesRoute
   ContactRoute: typeof ContactRoute
   DonateRoute: typeof DonateRoute
   ProgramsRoute: typeof ProgramsRoute
+  TestimonialsRoute: typeof TestimonialsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -132,13 +144,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/causes': {
-      id: '/causes'
-      path: '/causes'
-      fullPath: '/causes'
-      preLoaderRoute: typeof CausesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -160,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProgramsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -167,10 +179,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BlogRoute: BlogRoute,
-  CausesRoute: CausesRoute,
   ContactRoute: ContactRoute,
   DonateRoute: DonateRoute,
   ProgramsRoute: ProgramsRoute,
+  TestimonialsRoute: TestimonialsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

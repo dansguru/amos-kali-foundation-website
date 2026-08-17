@@ -10,12 +10,12 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import campaignSchool from "@/assets/campaign-school.jpg";
-import campaignWater from "@/assets/campaign-water.jpg";
-import campaignFood from "@/assets/campaign-food.jpg";
-import blogSchool from "@/assets/blog-school.jpg";
-import blogWater from "@/assets/blog-water.jpg";
-import blogHealth from "@/assets/blog-health.jpg";
+import campaignSchool from "@/assets/donations/IMG-20260729-WA0569(1).jpg";
+import campaignWater from "@/assets/donations/IMG-20260729-WA0681.jpg";
+import campaignFood from "@/assets/donations/IMG-20260729-WA0684.jpg";
+import blogSchool from "@/assets/freeeducation/IMG-20260729-WA0598.jpg";
+import blogWater from "@/assets/freeeducation/IMG-20260729-WA0606.jpg";
+import blogHealth from "@/assets/freeeducation/IMG-20260729-WA0658.jpg";
 
 export type Program = {
   title: string;
@@ -25,52 +25,57 @@ export type Program = {
 
 export const programs: Program[] = [
   {
-    title: "Education",
-    description: "Classrooms, scholarships and learning materials for children in underserved communities.",
+    title: "Spiritual Nourishing",
+    description: "Promoting Christian values, prayer, discipleship and biblical teachings that strengthen faith and inspire righteous living.",
     icon: BookOpen,
   },
   {
-    title: "Healthcare",
-    description: "Mobile clinics, maternal care and medical support where hospitals are far away.",
+    title: "Nurturing Talents",
+    description: "Identifying and developing talents in sports, arts, leadership and other areas for young people to maximise their potential.",
+    icon: Award,
+  },
+  {
+    title: "Building Communities",
+    description: "Strengthening communities through partnerships, volunteerism and initiatives that promote unity and social cohesion.",
+    icon: Users,
+  },
+  {
+    title: "Empowering Youth",
+    description: "Equipping youth with leadership skills, mentorship and entrepreneurship opportunities for positive engagement.",
     icon: HeartPulse,
   },
   {
-    title: "Clean Water",
-    description: "Boreholes, wells and sanitation systems that bring safe water closer to home.",
+    title: "Livelihoods",
+    description: "Supporting families through economic empowerment, vocational skills and financial literacy programmes.",
     icon: Droplets,
   },
   {
-    title: "Food & Nutrition",
-    description: "School meals and nutrition programmes that help children grow strong and stay in class.",
+    title: "Children Support",
+    description: "Protecting and nurturing children with access to education, nutrition, healthcare and mentorship.",
     icon: Salad,
-  },
-  {
-    title: "Child Protection",
-    description: "Safe spaces, counselling and advocacy that protect the rights of every child.",
-    icon: ShieldCheck,
   },
 ];
 
 export const values = [
   {
-    title: "Transparent",
-    description: "Every shilling is tracked and reported back to the people who gave it.",
+    title: "Faith in God",
+    description: "Our work is rooted in Christian values and guided by God's love for humanity.",
     icon: Globe2,
   },
   {
-    title: "Accountable",
-    description: "We answer to our donors and to the communities we serve, equally.",
+    title: "Love and Compassion",
+    description: "We serve with genuine care, seeing the dignity and potential in every person we meet.",
+    icon: Award,
+  },
+  {
+    title: "Integrity and Accountability",
+    description: "We answer to God, our donors and the communities we serve with complete transparency.",
     icon: ShieldCheck,
   },
   {
-    title: "Community Driven",
-    description: "Local leaders design the solutions; we walk alongside them.",
+    title: "Service to Humanity",
+    description: "Genuine faith is demonstrated through practical community action and service.",
     icon: Users,
-  },
-  {
-    title: "Proven Impact",
-    description: "Independent evaluation of every programme we run, each year.",
-    icon: Award,
   },
 ];
 

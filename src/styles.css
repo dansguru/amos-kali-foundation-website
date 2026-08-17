@@ -34,63 +34,43 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
+  --color-dark-green: var(--dark-green);
+  --color-green-hover: var(--green-hover);
   --color-sand: var(--sand);
   --color-cream: var(--cream);
-  --font-display: "Playfair Display", Georgia, serif;
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --shadow-card: 0 1px 2px oklch(0.3 0.03 150 / 0.04), 0 12px 30px -18px oklch(0.3 0.03 150 / 0.25);
-  --shadow-soft: 0 20px 50px -30px oklch(0.3 0.03 150 / 0.4);
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "Source Sans 3", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --shadow-card: 0 16px 38px -30px rgba(17, 72, 42, 0.36);
+  --shadow-soft: 0 22px 60px -44px rgba(11, 61, 35, 0.45);
 }
 
 :root {
-  --radius: 0.75rem;
-  --background: oklch(0.988 0.006 85);
-  --foreground: oklch(0.24 0.02 150);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.24 0.02 150);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.24 0.02 150);
-  --primary: oklch(0.38 0.075 155);
-  --primary-foreground: oklch(0.985 0.006 85);
-  --primary-soft: oklch(0.94 0.03 155);
-  --secondary: oklch(0.96 0.012 85);
-  --secondary-foreground: oklch(0.32 0.04 155);
-  --muted: oklch(0.965 0.01 85);
-  --muted-foreground: oklch(0.53 0.02 140);
-  --accent: oklch(0.71 0.17 55);
-  --accent-foreground: oklch(0.99 0.006 85);
-  --accent-soft: oklch(0.95 0.04 70);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0.006 85);
-  --border: oklch(0.915 0.012 90);
-  --input: oklch(0.915 0.012 90);
-  --ring: oklch(0.38 0.075 155);
-  --sand: oklch(0.965 0.018 80);
-  --cream: oklch(0.975 0.014 85);
-}
-
-.dark {
-  --background: oklch(0.19 0.02 155);
-  --foreground: oklch(0.97 0.008 85);
-  --card: oklch(0.24 0.025 155);
-  --card-foreground: oklch(0.97 0.008 85);
-  --popover: oklch(0.24 0.025 155);
-  --popover-foreground: oklch(0.97 0.008 85);
-  --primary: oklch(0.62 0.1 155);
-  --primary-foreground: oklch(0.16 0.02 155);
-  --primary-soft: oklch(0.3 0.04 155);
-  --secondary: oklch(0.28 0.03 155);
-  --secondary-foreground: oklch(0.97 0.008 85);
-  --muted: oklch(0.28 0.03 155);
-  --muted-foreground: oklch(0.72 0.02 140);
-  --accent: oklch(0.71 0.17 55);
-  --accent-foreground: oklch(0.16 0.02 155);
-  --accent-soft: oklch(0.3 0.05 60);
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.62 0.1 155);
-  --sand: oklch(0.24 0.025 155);
-  --cream: oklch(0.22 0.02 155);
+  --radius: 0.5rem;
+  --background: #fefdf9;
+  --foreground: #171717;
+  --card: #ffffff;
+  --card-foreground: #171717;
+  --popover: #ffffff;
+  --popover-foreground: #171717;
+  --primary: #11482a;
+  --dark-green: #0b3d23;
+  --green-hover: #1d6b43;
+  --primary-foreground: #ffffff;
+  --primary-soft: #edf4ee;
+  --secondary: #fff0d9;
+  --secondary-foreground: #11482a;
+  --muted: #f8f5ef;
+  --muted-foreground: #666666;
+  --accent: #f59a23;
+  --accent-foreground: #171717;
+  --accent-soft: #fff0d9;
+  --destructive: #b42318;
+  --destructive-foreground: #ffffff;
+  --border: #ede9e2;
+  --input: #ede9e2;
+  --ring: #11482a;
+  --sand: #fff0d9;
+  --cream: #fefdf9;
 }
 
 @layer base {
@@ -98,26 +78,50 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    line-height: 1.6;
+    letter-spacing: 0;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
-  h1,
-  h2,
-  h3,
-  h4 {
+  :where(h1, h2, h3, h4) {
     font-family: var(--font-display);
-    letter-spacing: -0.015em;
+    letter-spacing: 0;
+    line-height: 1.02;
+    font-weight: 650;
+    color: var(--color-foreground);
+    margin: 0 0 0.5rem;
+  }
+
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.25rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.125rem; }
+
+  p, li, span, a, input, button {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-foreground);
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
   }
 }
 
 @utility eyebrow {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-accent);
 }
@@ -125,8 +129,16 @@
 @utility container-page {
   width: 100%;
   margin-inline: auto;
-  max-width: 76rem;
-  padding-inline: 1.25rem;
+  max-width: 78rem;
+  padding-inline: clamp(1rem, 3vw, 1.5rem);
+}
+
+@utility section-pad {
+  padding-block: 5rem;
+}
+
+@utility organic-arch {
+  border-radius: 999px 999px 0.5rem 0.5rem;
 }
 
 @utility rise {

@@ -13,14 +13,14 @@ export function Newsletter() {
           toast.success("Thank you for subscribing to our updates.");
           setEmail("");
         }}
-        className="grid gap-5 rounded-2xl border border-border bg-card p-6 shadow-card md:grid-cols-[auto_1fr_auto] md:items-center md:gap-8 md:px-8"
+        className="grid gap-5 rounded-lg border border-border bg-card p-6 shadow-card md:grid-cols-[auto_1fr_auto] md:items-center md:gap-8 md:px-8"
       >
         <div className="flex min-w-0 items-center gap-3">
-          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary-soft text-primary">
+          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-primary text-primary-foreground">
             <Mail className="h-5 w-5" />
           </span>
           <div className="min-w-0">
-            <p className="font-display text-base font-bold">Stay Updated</p>
+            <p className="font-display text-lg font-semibold text-primary">Stay close to the work</p>
             <p className="truncate text-sm text-muted-foreground">Stories and updates from the field.</p>
           </div>
         </div>
@@ -30,11 +30,11 @@ export function Newsletter() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email address"
-          className="h-11 w-full rounded-full border border-border bg-background px-5 text-sm outline-none transition-colors focus:border-primary"
+          className="h-11 w-full rounded-md border border-border bg-background px-5 text-sm outline-none transition-colors focus:border-primary"
         />
         <button
           type="submit"
-          className="h-11 rounded-full bg-primary px-7 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
+          className="h-11 rounded-md bg-primary px-7 text-sm font-bold text-primary-foreground transition-colors hover:bg-green-hover"
         >
           Subscribe
         </button>

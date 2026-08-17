@@ -1,328 +1,55 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, CircleCheck, Heart, Play } from "lucide-react";
+import { ArrowRight, HeartHandshake } from "lucide-react";
 
-import heroChildren from "@/assets/hero-children.jpg";
-import aboutBoy from "@/assets/about-boy.jpg";
-import volunteers from "@/assets/volunteers.jpg";
-import { CauseCard } from "@/components/site/CauseCard";
-import { PostCard } from "@/components/site/PostCard";
+import heroImage from "@/assets/hero1.jpeg";
+import storyImage from "@/assets/freeeducation/IMG-20260729-WA0664.jpg";
+import fieldImage from "@/assets/donations/IMG-20260729-WA0733(1).jpg";
 import { Newsletter } from "@/components/site/Newsletter";
-import { causes, posts, programs, stats, values } from "@/lib/site-data";
+import { causes, programs, stats, values } from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Amos Kali Foundation | Building Hope Across Africa" },
-      {
-        name: "description",
-        content:
-          "Amos Kali Foundation partners with African communities to deliver education, clean water, healthcare and nutrition for every child.",
-      },
-      { property: "og:title", content: "Amos Kali Foundation | Building Hope Across Africa" },
-      {
-        property: "og:description",
-        content: "Education, clean water, healthcare and nutrition for children across Africa.",
-      },
+      { name: "description", content: "Amos Kali Foundation partners with African communities to deliver education, clean water, healthcare and nutrition for every child." },
     ],
   }),
   component: Home,
 });
 
-const trustLogos = ["UNICEF", "World Vision", "CARE", "Save the Children", "GlobalGiving"];
-
-const reasons = [
-  "100% secure donations",
-  "Regular updates and reports",
-  "Dedicated to long-term impact",
-  "Local teams, global standards",
-];
-
 function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="overflow-hidden bg-cream">
-        <div className="container-page grid items-center gap-12 py-16 md:py-24 lg:grid-cols-2">
-          <div className="rise">
-            <h1 className="text-4xl font-bold leading-[1.1] text-foreground sm:text-5xl lg:text-6xl">
-              Building Hope.
-              <br />
-              Creating <span className="text-accent">Change.</span>
-              <br />
-              Transforming Lives.
-            </h1>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
-              Together with African communities, we build a world where every child has the chance to live,
-              learn and thrive.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/donate"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-card transition-transform hover:scale-[1.03]"
-              >
-                <Heart className="h-4 w-4" />
-                Donate Now
-              </Link>
-              <Link
-                to="/programs"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-primary transition-colors hover:border-primary"
-              >
-                Explore Our Work
-                <span className="grid h-6 w-6 place-items-center rounded-full bg-accent text-accent-foreground">
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </span>
-              </Link>
-            </div>
-            <div className="mt-10 flex items-center gap-4">
-              <div className="flex -space-x-3">
-                {[0, 1, 2, 3].map((i) => (
-                  <span
-                    key={i}
-                    className="grid h-9 w-9 place-items-center rounded-full border-2 border-background bg-primary-soft text-xs font-bold text-primary"
-                  >
-                    {["AK", "MW", "JN", "SO"][i]}
-                  </span>
-                ))}
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Join <span className="font-semibold text-foreground">18,000+</span> supporters worldwide
-              </p>
+      <section className="overflow-hidden border-b border-border bg-background">
+        <div className="container-page grid min-h-[660px] lg:grid-cols-12 lg:gap-8">
+          <div className="relative z-10 flex flex-col justify-center py-16 lg:col-span-7 lg:py-24">
+            <p className="eyebrow">Amos Kali Foundation / Est. 2025</p>
+            <h1 className="mt-5 max-w-3xl text-[clamp(3.5rem,8vw,7.5rem)] font-semibold leading-[0.86] tracking-[-0.055em] text-primary">Care that<br />moves <em className="font-display font-medium text-accent">forward.</em></h1>
+            <div className="mt-10 grid max-w-xl gap-6 border-l border-accent pl-5 sm:grid-cols-[1fr_auto] sm:items-end">
+              <p className="text-lg leading-relaxed text-muted-foreground">We work beside communities to create the conditions for children and families to thrive.</p>
+              <Link to="/donate" className="inline-flex w-fit items-center gap-2 bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-green-hover">Support the work <ArrowRight className="h-4 w-4" /></Link>
             </div>
           </div>
-
-          <div className="relative rise">
-            <div className="absolute -left-6 top-8 hidden h-3 w-3 rounded-full bg-accent md:block" />
-            <div className="absolute -right-2 bottom-10 hidden h-3 w-3 rounded-full bg-primary md:block" />
-            <img
-              src={heroChildren}
-              alt="Smiling children supported by Amos Kali Foundation"
-              width={1024}
-              height={1024}
-              className="w-full rounded-[2rem] object-cover shadow-soft"
-            />
-          </div>
-        </div>
-
-        <div className="border-t border-border/70">
-          <div className="container-page flex flex-wrap items-center justify-center gap-x-10 gap-y-4 py-6">
-            <span className="text-sm text-muted-foreground">Trusted by</span>
-            {trustLogos.map((logo) => (
-              <span key={logo} className="font-display text-base font-semibold text-foreground/45">
-                {logo}
-              </span>
-            ))}
-          </div>
+          <div className="relative min-h-[380px] lg:col-span-5 lg:min-h-0"><div className="absolute inset-0 bg-accent" /><img src={heroImage} alt="Amos Kali Foundation education programme" width={1600} height={1059} className="absolute inset-x-0 top-0 h-[88%] w-full object-cover lg:inset-y-0 lg:h-full" /><p className="absolute bottom-5 left-5 text-xs font-bold uppercase tracking-[0.16em] text-primary">Education begins with access</p></div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="container-page -mt-2 py-16">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {values.map(({ title, description, icon: Icon }) => (
-            <div
-              key={title}
-              className="rounded-2xl border border-border bg-card p-7 text-center shadow-card transition-transform hover:-translate-y-1"
-            >
-              <span className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-accent-soft text-accent">
-                <Icon className="h-5.5 w-5.5" />
-              </span>
-              <h3 className="mt-5 font-display text-base font-bold">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
-            </div>
-          ))}
-        </div>
+      <section className="border-b border-border"><div className="container-page grid sm:grid-cols-3">{[["01", "Community-led", "Local knowledge informs every decision."], ["02", "Long-term", "We build relationships that endure."], ["03", "Accountable", "Clear reporting at every stage."]].map(([number, title, text]) => <div key={number} className="border-b border-border py-6 last:border-b-0 sm:border-b-0 sm:border-r sm:px-7 sm:first:pl-0 sm:last:border-r-0"><span className="text-xs font-bold tracking-[0.16em] text-accent">{number}</span><h2 className="mt-5 text-2xl font-semibold text-primary">{title}</h2><p className="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">{text}</p></div>)}</div></section>
 
-        {/* Stats */}
-        <div className="mt-8 grid divide-border rounded-2xl border border-border bg-sand py-8 sm:grid-cols-2 lg:grid-cols-4 lg:divide-x">
-          {stats.map((s) => (
-            <div key={s.label} className="px-6 py-4 text-center">
-              <p className="font-display text-3xl font-bold text-primary">{s.value}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{s.label}</p>
-            </div>
-          ))}
-        </div>
+      <section className="container-page grid gap-12 py-20 lg:grid-cols-12 lg:items-start">
+        <div className="lg:col-span-5"><p className="eyebrow">Our point of view</p><h2 className="mt-4 max-w-lg text-5xl font-semibold leading-[0.95] text-primary sm:text-6xl">Progress is built with people, never around them.</h2></div>
+        <div className="lg:col-span-7 lg:pt-20"><p className="max-w-2xl text-xl leading-relaxed text-muted-foreground">The most durable work starts with listening. We bring structure, resources and commitment; communities bring the insight that makes each programme matter.</p><div className="mt-12 grid border-t border-border sm:grid-cols-2">{values.map(({ title, description }, index) => <article key={title} className="border-b border-border py-6 sm:pr-8 sm:even:border-l sm:even:pl-8"><span className="text-xs font-bold tracking-[0.16em] text-accent">0{index + 1}</span><h3 className="mt-3 text-2xl font-semibold text-primary">{title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p></article>)}</div></div>
       </section>
 
-      {/* About */}
-      <section className="container-page grid items-center gap-12 py-16 lg:grid-cols-2">
-        <div className="relative">
-          <img
-            src={aboutBoy}
-            alt="A child from a community we serve"
-            loading="lazy"
-            width={900}
-            height={900}
-            className="w-full rounded-full object-cover shadow-soft"
-          />
-          <span className="absolute -left-3 top-10 hidden h-4 w-4 rounded-full bg-accent lg:block" />
-        </div>
-        <div>
-          <p className="eyebrow">About Us</p>
-          <h2 className="mt-3 text-3xl font-bold leading-tight text-foreground sm:text-4xl">
-            Empowering Communities.
-            <br />
-            Inspiring Change.
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            Amos Kali Foundation is a non-profit organisation dedicated to improving the lives of vulnerable
-            children and families across Africa — through education, health, water and dignity.
-          </p>
-          <ul className="mt-6 space-y-3">
-            {[
-              "Education for every child",
-              "Clean water and sanitation",
-              "Healthcare and nutrition",
-              "Emergency relief and support",
-            ].map((item) => (
-              <li key={item} className="flex items-center gap-3 text-sm text-foreground/85">
-                <CircleCheck className="h-5 w-5 shrink-0 text-accent" />
-                {item}
-              </li>
-            ))}
-          </ul>
-          <div className="mt-8 flex flex-wrap items-center gap-5">
-            <Link
-              to="/about"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
-            >
-              Learn More
-            </Link>
-            <button className="inline-flex items-center gap-2 text-sm font-semibold text-primary">
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-primary-soft">
-                <Play className="h-3.5 w-3.5 fill-primary text-primary" />
-              </span>
-              Watch Our Story
-            </button>
-          </div>
-        </div>
-      </section>
+      <section className="bg-primary text-primary-foreground"><div className="container-page grid gap-12 py-20 lg:grid-cols-12 lg:items-end"><div className="lg:col-span-4"><p className="eyebrow text-accent">Our impact</p><h2 className="mt-4 text-5xl font-semibold leading-[0.95] text-primary-foreground">Measured in what changes.</h2></div><div className="grid border-t border-white/20 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-4">{stats.map((stat, index) => <div key={stat.label} className="border-b border-white/20 py-6 sm:px-6 sm:even:border-l sm:even:border-white/20 lg:border-b-0 lg:first:pl-0 lg:not-first:border-l"><p className="text-xs font-bold tracking-[0.16em] text-accent">0{index + 1}</p><p className="mt-5 font-display text-4xl font-semibold text-primary-foreground">{stat.value}</p><p className="mt-2 text-sm text-primary-foreground/70">{stat.label}</p></div>)}</div></div></section>
 
-      {/* Programs */}
-      <section className="border-y border-border bg-sand py-16">
-        <div className="container-page text-center">
-          <p className="eyebrow">Our Programs</p>
-          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Programs That Create Lasting Change</h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-            We focus on sustainable programmes that empower communities and help children build a better
-            future.
-          </p>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-            {programs.map(({ title, description, icon: Icon }) => (
-              <div
-                key={title}
-                className="rounded-2xl border border-border bg-card p-6 text-center shadow-card transition-transform hover:-translate-y-1"
-              >
-                <span className="mx-auto grid h-11 w-11 place-items-center rounded-full bg-primary-soft text-primary">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <h3 className="mt-4 font-display text-base font-bold">{title}</h3>
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{description}</p>
-                <Link
-                  to="/programs"
-                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-accent"
-                >
-                  Learn More <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <section className="grid border-b border-border lg:grid-cols-2"><div className="min-h-[460px] overflow-hidden"><img src={storyImage} alt="A free education programme" loading="lazy" width={1600} height={1059} className="h-full w-full object-cover" /></div><div className="flex items-center bg-accent-soft px-6 py-20 sm:px-10 lg:px-[max(3rem,calc((100vw-78rem)/2))]"><div className="max-w-xl"><p className="eyebrow">Where we begin</p><h2 className="mt-4 text-5xl font-semibold leading-[0.95] text-primary">A good future should not be out of reach.</h2><p className="mt-7 text-lg leading-relaxed text-muted-foreground">From education and health to water, nutrition and protection, our work meets the practical needs that shape a child&apos;s future.</p><Link to="/about" className="mt-8 inline-flex items-center gap-2 border-b-2 border-primary pb-1 text-sm font-bold text-primary hover:text-green-hover">Meet the foundation <ArrowRight className="h-4 w-4" /></Link></div></div></section>
 
-      {/* Causes */}
-      <section className="container-page py-16 text-center">
-        <p className="eyebrow">Featured Campaigns</p>
-        <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Support Our Current Campaigns</h2>
-        <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
-          Your support brings hope and change to those who need it most.
-        </p>
-        <div className="mt-10 grid gap-6 text-left md:grid-cols-2 lg:grid-cols-3">
-          {causes.map((c) => (
-            <CauseCard key={c.slug} cause={c} />
-          ))}
-        </div>
-        <Link
-          to="/causes"
-          className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent"
-        >
-          View All Campaigns <ArrowRight className="h-4 w-4" />
-        </Link>
-      </section>
+      <section className="container-page py-20"><div className="grid gap-8 border-b border-border pb-8 lg:grid-cols-12 lg:items-end"><div className="lg:col-span-7"><p className="eyebrow">Our programmes</p><h2 className="mt-4 text-5xl font-semibold leading-[0.95] text-primary">The work, in focus.</h2></div><p className="text-base leading-relaxed text-muted-foreground lg:col-span-5">Five connected areas of work, designed for practical and lasting change.</p></div><div className="grid lg:grid-cols-5">{programs.map(({ title, description }, index) => <article key={title} className="border-b border-border py-7 lg:border-r lg:px-5 lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0"><p className="text-xs font-bold tracking-[0.16em] text-accent">0{index + 1}</p><h3 className="mt-10 text-2xl font-semibold text-primary">{title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{description}</p></article>)}</div><Link to="/programs" className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-green-hover">Explore our programmes <ArrowRight className="h-4 w-4 text-accent" /></Link></section>
 
-      {/* Why choose us + Blog */}
-      <section className="container-page grid gap-12 py-16 lg:grid-cols-[1fr_2fr]">
-        <div>
-          <p className="eyebrow">Why Choose Us</p>
-          <h2 className="mt-3 text-3xl font-bold leading-tight">
-            Why Thousands
-            <br />
-            Trust Amos Kali
-          </h2>
-          <ul className="mt-6 space-y-3">
-            {reasons.map((r) => (
-              <li key={r} className="flex items-center gap-3 text-sm text-foreground/85">
-                <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
-                  <Check className="h-3 w-3" strokeWidth={3} />
-                </span>
-                {r}
-              </li>
-            ))}
-          </ul>
-          <Link
-            to="/donate"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
-          >
-            <Heart className="h-4 w-4" />
-            Donate Now
-          </Link>
-        </div>
+      <section className="bg-muted py-20"><div className="container-page grid gap-10 lg:grid-cols-12"><div className="lg:col-span-4"><p className="eyebrow">Give with purpose</p><h2 className="mt-4 text-5xl font-semibold leading-[0.95] text-primary">Back what matters now.</h2><Link to="/donate" className="mt-8 inline-flex items-center gap-2 bg-accent px-5 py-3 text-sm font-bold text-accent-foreground hover:bg-[#e9870a]">Give today <HeartHandshake className="h-4 w-4" /></Link></div><div className="grid gap-5 sm:grid-cols-3 lg:col-span-8">{causes.map((cause, index) => <article key={cause.slug} className="border-t border-primary pt-4"><img src={cause.image} alt={cause.title} loading="lazy" width={1280} height={960} className="aspect-[4/3] w-full object-cover" /><p className="mt-4 text-xs font-bold tracking-[0.16em] text-accent">0{index + 1}</p><h3 className="mt-2 text-2xl font-semibold text-primary">{cause.title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{cause.summary}</p></article>)}</div></div></section>
 
-        <div>
-          <p className="eyebrow">Latest News &amp; Stories</p>
-          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((p) => (
-              <PostCard key={p.slug} post={p} />
-            ))}
-          </div>
-          <Link
-            to="/blog"
-            className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent"
-          >
-            View All News <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </section>
-
-      {/* Volunteer CTA */}
-      <section className="container-page pb-16">
-        <div className="grid overflow-hidden rounded-2xl border border-border bg-sand md:grid-cols-2">
-          <div className="p-8 md:p-12">
-            <p className="eyebrow">Become a Volunteer</p>
-            <h2 className="mt-3 text-2xl font-bold leading-tight sm:text-3xl">
-              Be the Change.
-              <br />
-              Volunteer Today.
-            </h2>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Join our community of volunteers and make a lasting difference in someone's life.
-            </p>
-            <Link
-              to="/contact"
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
-            >
-              Explore Opportunities <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-          <img
-            src={volunteers}
-            alt="Volunteers celebrating together"
-            loading="lazy"
-            width={1400}
-            height={700}
-            className="h-full min-h-64 w-full object-cover"
-          />
-        </div>
-      </section>
+      <section className="container-page grid gap-10 py-20 lg:grid-cols-12 lg:items-center"><img src={fieldImage} alt="Amos Kali Foundation field work" loading="lazy" width={1500} height={1000} className="aspect-[5/4] w-full object-cover lg:col-span-6" /><div className="lg:col-span-5 lg:col-start-8"><p className="eyebrow">From the field</p><blockquote className="mt-5 text-4xl font-semibold leading-[1.02] text-primary sm:text-5xl">“When a community owns the work, hope becomes something people can hold.”</blockquote><p className="mt-6 text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">Field team reflection / Makueni County</p><Link to="/testimonials" className="mt-8 inline-flex items-center gap-2 border-b-2 border-primary pb-1 text-sm font-bold text-primary">Read community voices <ArrowRight className="h-4 w-4" /></Link></div></section>
 
       <Newsletter />
     </>

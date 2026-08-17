@@ -45,9 +45,9 @@ function Programs() {
         {programs.map(({ title, description, icon: Icon }, i) => (
           <div
             key={title}
-            className="grid gap-6 rounded-2xl border border-border bg-card p-7 shadow-card md:grid-cols-[auto_1fr_auto] md:items-center md:p-9"
+            className="grid gap-6 rounded-lg border border-border bg-card p-7 shadow-card md:grid-cols-[auto_1fr_auto] md:items-center md:p-9"
           >
-            <span className="grid h-14 w-14 place-items-center rounded-2xl bg-primary-soft text-primary">
+            <span className="grid h-14 w-14 place-items-center rounded-md bg-primary text-primary-foreground">
               <Icon className="h-6 w-6" />
             </span>
             <div className="min-w-0">
@@ -60,7 +60,7 @@ function Programs() {
                 {details[title]?.map((d) => (
                   <li
                     key={d}
-                    className="rounded-full border border-border bg-sand px-3 py-1 text-xs font-medium text-foreground/75"
+                    className="rounded-md border border-border bg-accent-soft px-3 py-1 text-xs font-medium text-foreground/75"
                   >
                     {d}
                   </li>
@@ -69,7 +69,7 @@ function Programs() {
             </div>
             <Link
               to="/donate"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-transform hover:scale-[1.03]"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-6 py-3 text-sm font-bold text-accent-foreground transition-colors hover:bg-[#e9870a]"
             >
               Support This <ArrowRight className="h-4 w-4" />
             </Link>

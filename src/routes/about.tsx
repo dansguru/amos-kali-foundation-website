@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CircleCheck, Compass, Eye, HeartHandshake } from "lucide-react";
 
-import aboutBoy from "@/assets/about-boy.jpg";
-import volunteers from "@/assets/volunteers.jpg";
+import aboutBoy from "@/assets/freeeducation/IMG-20260729-WA0664.jpg";
+import volunteers from "@/assets/donations/group.jpg";
 import { PageHero } from "@/components/site/PageHero";
 import { Newsletter } from "@/components/site/Newsletter";
 import { stats, values } from "@/lib/site-data";
@@ -30,17 +30,17 @@ const pillars = [
   {
     title: "Our Mission",
     icon: Compass,
-    text: "To improve the lives of vulnerable children and families through education, health, water and dignified livelihoods.",
+    text: "To demonstrate the love of Christ by empowering communities through spiritual growth, talent development, youth empowerment, sustainable livelihoods, child support and community transformation.",
   },
   {
     title: "Our Vision",
     icon: Eye,
-    text: "An Africa where every child grows up healthy, educated and free to shape their own future.",
+    text: "To build transformed, self-reliant and God-centred communities where every individual has the opportunity to thrive spiritually, socially and economically.",
   },
   {
     title: "Our Approach",
     icon: HeartHandshake,
-    text: "We listen first. Communities lead the design of every project; we bring resources, structure and accountability.",
+    text: "Grounded in Christian values of love, compassion and integrity, we combine spiritual guidance with practical community action to serve God through serving people.",
   },
 ];
 
@@ -49,8 +49,8 @@ function About() {
     <>
       <PageHero
         eyebrow="About Us"
-        title="Empowering Communities, Inspiring Change"
-        description="Amos Kali Foundation was founded on a simple belief: lasting change is built with communities, never for them."
+        title="Transforming Communities with God's Love"
+        description="The Amos Kali Foundation is a Christian faith-based, non-profit organisation founded in 2025 through the inspiration and ministry of the Synagogue Church of All People (SCOAP) – Kajiado."
       />
 
       <section className="container-page grid items-center gap-12 py-16 lg:grid-cols-2">
@@ -60,24 +60,22 @@ function About() {
           loading="lazy"
           width={900}
           height={900}
-          className="w-full rounded-[2rem] object-cover shadow-soft"
+          className="organic-arch aspect-[4/5] w-full object-cover shadow-soft"
         />
         <div>
           <p className="eyebrow">Our Story</p>
           <h2 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl">
-            From one classroom to hundreds of communities
+            Guided by Christian values, serving communities with compassion
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            What began as a single village literacy project has grown into a foundation working across
-            education, healthcare, clean water and nutrition. Our teams live in the regions they serve, which
-            keeps our work grounded, practical and accountable.
+            Amos Kali Foundation believes that genuine faith is demonstrated through service to humanity. Founded in 2025 by SCOAP – Kajiado, we exist to transform lives by sharing God's love through practical community action. Our work is guided by Christian values of love, compassion, integrity and service as we empower individuals and communities to realise their God-given potential.
           </p>
           <ul className="mt-6 space-y-3">
             {[
-              "Locally led teams in every region",
-              "Independent annual impact evaluation",
-              "Transparent reporting to every donor",
-              "Long-term partnerships, not short projects",
+              "Faith-based approach grounded in Christian values",
+              "Community-led programmes designed with local leaders",
+              "Integrated support across spiritual, social and economic needs",
+              "Commitment to empowering people toward self-reliance",
             ].map((i) => (
               <li key={i} className="flex items-center gap-3 text-sm text-foreground/85">
                 <CircleCheck className="h-5 w-5 shrink-0 text-accent" />
@@ -88,14 +86,14 @@ function About() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-sand py-16">
+      <section className="border-y border-border bg-accent-soft py-16">
         <div className="container-page grid gap-6 md:grid-cols-3">
           {pillars.map(({ title, text, icon: Icon }) => (
-            <div key={title} className="rounded-2xl border border-border bg-card p-7 shadow-card">
-              <span className="grid h-11 w-11 place-items-center rounded-full bg-primary-soft text-primary">
+            <div key={title} className="rounded-lg border border-border bg-card p-7 shadow-card">
+              <span className="grid h-11 w-11 place-items-center rounded-md bg-primary text-primary-foreground">
                 <Icon className="h-5 w-5" />
               </span>
-              <h3 className="mt-5 font-display text-lg font-bold">{title}</h3>
+              <h3 className="mt-5 font-display text-xl font-semibold text-primary">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p>
             </div>
           ))}
@@ -103,7 +101,7 @@ function About() {
       </section>
 
       <section className="container-page py-16">
-        <div className="grid divide-border rounded-2xl border border-border bg-card py-8 shadow-card sm:grid-cols-2 lg:grid-cols-4 lg:divide-x">
+        <div className="grid divide-border rounded-lg border border-border bg-card py-8 shadow-card sm:grid-cols-2 lg:grid-cols-4 lg:divide-x">
           {stats.map((s) => (
             <div key={s.label} className="px-6 py-4 text-center">
               <p className="font-display text-3xl font-bold text-primary">{s.value}</p>
@@ -114,11 +112,11 @@ function About() {
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {values.map(({ title, description, icon: Icon }) => (
-            <div key={title} className="rounded-2xl border border-border bg-card p-7 shadow-card">
-              <span className="grid h-11 w-11 place-items-center rounded-full bg-accent-soft text-accent">
+            <div key={title} className="rounded-lg border border-border bg-card p-7 shadow-card">
+              <span className="grid h-11 w-11 place-items-center rounded-md bg-accent-soft text-accent">
                 <Icon className="h-5 w-5" />
               </span>
-              <h3 className="mt-5 font-display text-base font-bold">{title}</h3>
+              <h3 className="mt-5 font-display text-xl font-semibold text-primary">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
             </div>
           ))}
@@ -132,7 +130,7 @@ function About() {
           loading="lazy"
           width={1400}
           height={700}
-          className="w-full rounded-2xl object-cover shadow-soft"
+          className="w-full rounded-lg object-cover shadow-soft"
         />
       </section>
 

@@ -1,14 +1,22 @@
-import { useRef, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { HeartHandshake, Menu, Phone, MessageCircle, ArrowRight, Mail, MapPin, X } from "lucide-react";
+import { HeartHandshake, Menu, MessageCircle, Phone } from "lucide-react";
+
 import logo from "@/assets/logo.jpg";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const nav = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About Us" },
+  { to: "/about", label: "About" },
   { to: "/programs", label: "Programs" },
-  { to: "/testimonials", label: "Testimonials" },
-  { to: "/blog", label: "Blog" },
+  { to: "/testimonials", label: "Stories" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -18,41 +26,11 @@ const recentContacts = [
 ];
 
 export function Header() {
-  const sidebarRef = useRef<HTMLDivElement>(null);
-  const overlayRef = useRef<HTMLDivElement>(null);
-  const isOpen = useRef(false);
-
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen.current) {
-        closeMenu();
-      }
-    };
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, []);
-
-  const openMenu = () => {
-    isOpen.current = true;
-    if (sidebarRef.current) sidebarRef.current.setAttribute("data-open", "true");
-    if (overlayRef.current) overlayRef.current.setAttribute("data-open", "true");
-    document.body.style.overflow = "hidden";
-  };
-
-  const closeMenu = () => {
-    isOpen.current = false;
-    if (sidebarRef.current) sidebarRef.current.setAttribute("data-open", "false");
-    if (overlayRef.current) overlayRef.current.setAttribute("data-open", "false");
-    document.body.style.overflow = "auto";
-  };
-
-  const handleNavClick = () => {
-    closeMenu();
-  };
+  const [open, setOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
-      <div className="container-page grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-4 lg:flex lg:justify-between">
+      <div className="container-page flex items-center justify-between gap-4 py-4">
         <Link to="/" className="flex min-w-0 items-center gap-2.5">
           <img src={logo} alt="Amos Kali Foundation Logo" className="h-10 w-10 shrink-0 rounded-md object-cover" />
         </Link>
@@ -76,7 +54,7 @@ export function Header() {
             {recentContacts.map((contact) => (
               <a
                 key={contact.phone}
-                href={contact.phone.includes("WhatsApp") ? `https://wa.me/254723479333` : `tel:${contact.phone}`}
+                href={contact.phone.includes("WhatsApp") ? "https://wa.me/254723479333" : `tel:${contact.phone}`}
                 className="flex items-center gap-1.5 text-xs font-semibold text-foreground/70 transition-colors hover:text-accent"
                 title={contact.name}
               >
@@ -94,99 +72,57 @@ export function Header() {
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          type="button"
-          aria-label="Toggle navigation"
-          onClick={openMenu}
-          className="grid h-10 w-10 shrink-0 place-items-center rounded-md border border-border bg-card text-primary lg:hidden hover:bg-accent-soft transition-colors"
-        >
-          <Menu className="h-5 w-5" />
-        </button>
+        <Sheet open={open} onOpenChange={setOpen}>
+          <SheetTrigger asChild>
+            <button
+              type="button"
+              aria-label="Open menu"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-input bg-background text-foreground shadow-sm transition-colors hover:bg-accent lg:hidden"
+            >
+              <Menu className="h-5 w-5" />
+            </button>
+          </SheetTrigger>
 
-        {/* Mobile Overlay */}
-        <div
-          ref={overlayRef}
-          data-open="false"
-          className="fixed inset-0 z-40 bg-black/50 transition-opacity duration-200 lg:hidden"
-          onClick={closeMenu}
-          style={{
-            opacity: isOpen.current ? 1 : 0,
-            pointerEvents: isOpen.current ? "auto" : "none",
-          }}
-        />
+          <SheetContent side="left" className="w-[84vw] max-w-sm border-r bg-background p-0 sm:max-w-sm">
+            <div className="flex h-full flex-col">
+              <SheetHeader className="border-b border-border px-5 py-4 text-left">
+                <div className="flex items-center gap-3">
+                  <img src={logo} alt="Amos Kali Foundation Logo" className="h-10 w-10 rounded-md object-cover" />
+                  <div>
+                    <SheetTitle className="text-base font-semibold text-foreground">Amos Kali Foundation</SheetTitle>
+                    <SheetDescription className="text-xs text-muted-foreground">Building hope together</SheetDescription>
+                  </div>
+                </div>
+              </SheetHeader>
 
-        {/* Mobile Sidebar */}
-        <div
-          ref={sidebarRef}
-          data-open="false"
-          className="fixed inset-y-0 left-0 z-40 w-72 border-r border-border bg-background transition-transform duration-200 overflow-y-auto lg:hidden flex flex-col"
-          style={{
-            transform: isOpen.current ? "translateX(0)" : "translateX(-100%)",
-          }}
-        >
-          {/* Sidebar Header */}
-          <div className="border-b border-border px-5 py-4 flex items-center justify-between shrink-0">
-            <div className="flex items-center gap-3">
-              <img src={logo} alt="Amos Kali Foundation Logo" className="h-10 w-10 rounded-lg object-cover" />
-              <div>
-                <p className="text-sm font-semibold tracking-wider text-primary">AMOS KALI</p>
-                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Foundation</p>
+              <nav className="flex-1 space-y-1 px-3 py-4">
+                {nav.map((item) => (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    activeOptions={{ exact: item.to === "/" }}
+                    activeProps={{ className: "bg-accent-soft text-primary" }}
+                    onClick={() => setOpen(false)}
+                    className="flex items-center rounded-xl px-3 py-3 text-base font-semibold text-foreground/80 transition-colors hover:bg-accent-soft hover:text-primary"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+
+              <div className="border-t border-border p-4">
+                <Link
+                  to="/donate"
+                  onClick={() => setOpen(false)}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-4 py-3 text-sm font-bold text-accent-foreground shadow-card transition-colors hover:bg-[#e9870a]"
+                >
+                  <HeartHandshake className="h-4 w-4" />
+                  Donate Now
+                </Link>
               </div>
             </div>
-            <button
-              onClick={closeMenu}
-              className="p-1.5 hover:bg-accent-soft rounded-md transition-colors"
-              aria-label="Close menu"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          </div>
-
-          {/* Navigation Links */}
-          <nav className="flex-1 space-y-1 px-3 py-4">
-            {nav.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                onClick={handleNavClick}
-                activeOptions={{ exact: item.to === "/" }}
-                activeProps={{ className: "bg-accent-soft text-primary" }}
-                className="flex items-center justify-between rounded-lg px-3 py-3 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent-soft hover:text-primary"
-              >
-                <span>{item.label}</span>
-                <ArrowRight className="h-4 w-4 text-muted-foreground" />
-              </Link>
-            ))}
-          </nav>
-
-          {/* Sidebar Footer */}
-          <div className="border-t border-border bg-card/60 p-4 shrink-0">
-            <Link
-              to="/donate"
-              onClick={handleNavClick}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-bold text-accent-foreground shadow-card transition-colors hover:bg-[#e9870a]"
-            >
-              <HeartHandshake className="h-4 w-4" />
-              Donate Now
-            </Link>
-
-            <div className="mt-4 space-y-3 text-xs text-muted-foreground">
-              <a href="tel:+254799116963" className="flex items-center gap-2 text-left hover:text-primary">
-                <Phone className="h-3.5 w-3.5 text-accent shrink-0" />
-                +254 799 116 963
-              </a>
-              <a href="mailto:hello@amoskalifoundation.org" className="flex items-center gap-2 text-left hover:text-primary">
-                <Mail className="h-3.5 w-3.5 text-accent shrink-0" />
-                hello@amoskalifoundation.org
-              </a>
-              <p className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" />
-                Kali House, Ngong Road, Nairobi, Kenya
-              </p>
-            </div>
-          </div>
-        </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
   );

@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Outlet, useLocation } from "@tanstack/react-router";
 
 import { PageHero } from "@/components/site/PageHero";
 import { PostCard } from "@/components/site/PostCard";
@@ -21,12 +21,18 @@ export const Route = createFileRoute("/blog")({
 });
 
 function Blog() {
+  const location = useLocation();
+
+  if (location.pathname !== "/blog") {
+    return <Outlet />;
+  }
+
   return (
     <>
       <PageHero
-        eyebrow="Latest News & Stories"
-        title="Stories From the Field"
-        description="Updates from the communities we serve, written by the teams who work there."
+        eyebrow="Stories of Help & Hope"
+        title="Community Stories"
+        description="Real stories from the field about kindness, service, and the everyday moments that change lives."
       />
 
       <section className="container-page grid gap-6 py-16 sm:grid-cols-2 lg:grid-cols-3">

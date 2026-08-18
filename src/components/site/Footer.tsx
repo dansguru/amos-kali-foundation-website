@@ -19,7 +19,13 @@ const quickLinks = [
   { to: "/contact", label: "Contact Us" },
 ] as const;
 
-const supportLinks = ["Donate Now", "Volunteer", "Fundraise", "Partner With Us", "FAQs"];
+const supportLinks = [
+  { to: "/donate", label: "Donate Now" },
+  { to: "/contact", label: "Volunteer" },
+  { to: "/contact", label: "Partner With Us" },
+  { to: "/privacy", label: "Privacy Policy" },
+  { to: "/terms", label: "Terms of Service" },
+] as const;
 
 export function Footer() {
   return (
@@ -71,9 +77,9 @@ export function Footer() {
           <h4 className="text-sm font-bold tracking-wide text-white">Support</h4>
           <ul className="mt-5 space-y-3 text-sm text-white/75">
             {supportLinks.map((l) => (
-              <li key={l}>
-                <Link to="/donate" className="transition-colors hover:text-accent">
-                  {l}
+              <li key={l.label}>
+                <Link to={l.to} className="transition-colors hover:text-accent">
+                  {l.label}
                 </Link>
               </li>
             ))}
@@ -89,15 +95,17 @@ export function Footer() {
             </li>
             <li className="flex gap-3">
               <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-              +254 700 123 456
+              <a href="tel:+254799116963" className="hover:text-accent">+254 799 116 963</a>
             </li>
             <li className="flex gap-3">
               <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-              hello@amoskalifoundation.org
+              <a href="mailto:hello@amoskalifoundation.org" className="hover:text-accent">
+                hello@amoskalifoundation.org
+              </a>
             </li>
             <li className="flex gap-3">
               <Clock className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-              Mon - Fri, 9AM - 5PM
+              Mon - Fri, 9AM - 5PM EAT
             </li>
           </ul>
         </div>
@@ -106,10 +114,10 @@ export function Footer() {
       <div className="border-t border-white/15">
         <div className="container-page flex flex-col gap-3 py-5 text-xs text-white/65 sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright {new Date().getFullYear()} Amos Kali Foundation. All rights reserved.</p>
-          <div className="flex gap-6">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Use</a>
-            <a href="#">Sitemap</a>
+          <div className="flex flex-wrap gap-4 sm:gap-6">
+            <Link to="/privacy" className="hover:text-accent">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-accent">Terms of Service</Link>
+            <Link to="/sitemap" className="hover:text-accent">Sitemap</Link>
           </div>
         </div>
       </div>

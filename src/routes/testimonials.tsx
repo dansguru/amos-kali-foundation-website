@@ -32,6 +32,7 @@ import testimonialFive from "@/assets/testimonials/WhatsApp Image 2026-07-29 at 
 
 import { PageHero } from "@/components/site/PageHero";
 import { Newsletter } from "@/components/site/Newsletter";
+import InteractiveImageBentoGallery from "@/components/ui/bento-gallery";
 
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
@@ -47,6 +48,51 @@ export const Route = createFileRoute("/testimonials")({
   }),
   component: Testimonials,
 });
+
+const featuredGalleryItems = [
+  {
+    id: 1,
+    title: "School Support",
+    desc: "Children returned to class with renewed hope.",
+    url: educationOne,
+    span: "md:col-span-2 md:row-span-2",
+  },
+  {
+    id: 2,
+    title: "Food Relief",
+    desc: "Meals reaching families in need.",
+    url: donationFive,
+    span: "md:row-span-1",
+  },
+  {
+    id: 3,
+    title: "Water Access",
+    desc: "A daily need turned into lasting dignity.",
+    url: educationTwo,
+    span: "md:row-span-1",
+  },
+  {
+    id: 4,
+    title: "Community Care",
+    desc: "Listening, serving, and walking alongside families.",
+    url: testimonialOne,
+    span: "md:row-span-2",
+  },
+  {
+    id: 5,
+    title: "Youth Empowerment",
+    desc: "Creative spaces that build confidence.",
+    url: donationOne,
+    span: "md:row-span-1",
+  },
+  {
+    id: 6,
+    title: "Shared Joy",
+    desc: "Moments of play, connection, and encouragement.",
+    url: testimonialFive,
+    span: "md:col-span-2 md:row-span-1",
+  },
+];
 
 const galleryCategories = [
   {
@@ -88,6 +134,14 @@ function Testimonials() {
             We are grateful to everyone who takes the time to share their experience. With care and
             respect, we preserve these moments as part of our ongoing conversation with communities.
           </p>
+        </div>
+
+        <div className="mt-14">
+          <InteractiveImageBentoGallery
+            imageItems={featuredGalleryItems}
+            title="Moments That Matter"
+            description="A visual reflection of the people, places, and shared experiences that continue to shape our mission."
+          />
         </div>
 
         {galleryCategories.map((category) => (

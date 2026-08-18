@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { HeartHandshake, Menu, Phone, X, MessageCircle } from "lucide-react";
+import logo from "@/assets/logo.jpg";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -23,9 +24,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
       <div className="container-page grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-4 lg:flex lg:justify-between">
         <Link to="/" className="flex min-w-0 items-center gap-2.5" onClick={() => setOpen(false)}>
-          <span className="grid h-10 w-10 shrink-0 place-items-center bg-primary text-primary-foreground [clip-path:polygon(50%_0,100%_25%,100%_100%,0_100%,0_25%)]">
-            <HeartHandshake className="h-5 w-5" strokeWidth={2.1} />
-          </span>
+          <img src={logo} alt="Amos Kali Foundation Logo" className="h-10 w-10 shrink-0 object-cover rounded-md" />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">

@@ -10,7 +10,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import campaignSchool from "@/assets/donations/IMG-20260729-WA0569(1).jpg";
 import campaignWater from "@/assets/donations/IMG-20260729-WA0681.jpg";
 import campaignFood from "@/assets/donations/IMG-20260729-WA0684.jpg";
 import blogSchool from "@/assets/freeeducation/IMG-20260729-WA0598.jpg";
@@ -97,17 +96,9 @@ export type Cause = {
 
 export const causes: Cause[] = [
   {
-    slug: "build-schools",
-    title: "Build Schools for Rural Kenya",
-    summary: "Three new classroom blocks for children walking more than 8km to learn.",
-    image: campaignSchool,
-    raised: 28500,
-    goal: 60000,
-  },
-  {
-    slug: "clean-water",
-    title: "Clean Water for Every Village",
-    summary: "Solar-powered boreholes serving 12 villages in the Eastern counties.",
+    slug: "donate-food",
+    title: "Donate Food to the Needy",
+    summary: "Providing nutritious meals and food supplies to families in need across rural communities.",
     image: campaignWater,
     raised: 21400,
     goal: 45000,

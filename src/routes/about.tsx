@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CircleCheck, Compass, Eye, HeartHandshake } from "lucide-react";
 
-import aboutBoy from "@/assets/freeeducation/IMG-20260729-WA0664.jpg";
+import aboutBoy from "@/assets/crusade.jpg";
 import volunteers from "@/assets/donations/group.jpg";
 import { PageHero } from "@/components/site/PageHero";
 import { Newsletter } from "@/components/site/Newsletter";
@@ -56,7 +56,7 @@ function About() {
       <section className="container-page grid items-center gap-12 py-16 lg:grid-cols-2">
         <img
           src={aboutBoy}
-          alt="A child from one of our partner communities"
+          alt="Crusade community event"
           loading="lazy"
           width={900}
           height={900}

@@ -1,16 +1,35 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Heart, Quote } from "lucide-react";
 
-import testimonialOne from "@/assets/testimonials/IMG-20260729-WA0664.jpg";
-import testimonialTwo from "@/assets/testimonials/IMG-20260729-WA0665.jpg";
-import testimonialThree from "@/assets/testimonials/IMG-20260729-WA0713.jpg";
-import testimonialFour from "@/assets/testimonials/IMG-20260729-WA0733(1).jpg";
-import testimonialFive from "@/assets/testimonials/IMG-20260729-WA0736(1).jpg";
-import testimonialSix from "@/assets/testimonials/IMG_0855.jpg";
-import testimonialSeven from "@/assets/testimonials/IMG_0885.jpg";
-import testimonialEight from "@/assets/testimonials/WhatsApp Image 2026-07-29 at 6.13.29 PM (2).jpeg";
-import testimonialNine from "@/assets/testimonials/WhatsApp Image 2026-07-29 at 6.13.31 PM.jpeg";
-import testimonialTen from "@/assets/testimonials/WhatsApp Image 2026-07-29 at 6.13.33 PM (2).jpeg";
+// Donations pictures
+import donationOne from "@/assets/donations/IMG-20260729-WA0566(1).jpg";
+import donationTwo from "@/assets/donations/IMG-20260729-WA0569(1).jpg";
+import donationThree from "@/assets/donations/IMG-20260729-WA0569.jpg";
+import donationFour from "@/assets/donations/IMG-20260729-WA0680.jpg";
+import donationFive from "@/assets/donations/IMG-20260729-WA0681.jpg";
+import donationSix from "@/assets/donations/IMG-20260729-WA0684.jpg";
+import donationSeven from "@/assets/donations/IMG-20260729-WA0685.jpg";
+import donationEight from "@/assets/donations/IMG-20260729-WA0733(1).jpg";
+import donationNine from "@/assets/donations/IMG-20260729-WA0734.jpg";
+import donationTen from "@/assets/donations/IMG-20260729-WA0735(2).jpg";
+import donationEleven from "@/assets/donations/IMG-20260729-WA0736(1).jpg";
+import donationTwelve from "@/assets/donations/IMG-20260729-WA0737(2).jpg";
+import donationThirteen from "@/assets/donations/WhatsApp Image 2026-08-03 at 10.38.18 AM (1).jpeg";
+import donationFourteen from "@/assets/donations/WhatsApp Image 2026-08-03 at 10.38.18 AM.jpeg";
+
+// Free Education pictures
+import educationOne from "@/assets/freeeducation/IMG-20260729-WA0598.jpg";
+import educationTwo from "@/assets/freeeducation/IMG-20260729-WA0606.jpg";
+import educationThree from "@/assets/freeeducation/IMG-20260729-WA0658.jpg";
+import educationFour from "@/assets/freeeducation/IMG-20260729-WA0664.jpg";
+
+// Children's home visit & Sports pictures
+import testimonialOne from "@/assets/testimonials/IMG_0855.jpg";
+import testimonialTwo from "@/assets/testimonials/IMG_0885.jpg";
+import testimonialThree from "@/assets/testimonials/WhatsApp Image 2026-07-29 at 6.13.29 PM (2).jpeg";
+import testimonialFour from "@/assets/testimonials/WhatsApp Image 2026-07-29 at 6.13.31 PM.jpeg";
+import testimonialFive from "@/assets/testimonials/WhatsApp Image 2026-07-29 at 6.13.33 PM (2).jpeg";
+
 import { PageHero } from "@/components/site/PageHero";
 import { Newsletter } from "@/components/site/Newsletter";
 
@@ -29,17 +48,27 @@ export const Route = createFileRoute("/testimonials")({
   component: Testimonials,
 });
 
-const testimonials = [
-  testimonialOne,
-  testimonialTwo,
-  testimonialThree,
-  testimonialFour,
-  testimonialFive,
-  testimonialSix,
-  testimonialSeven,
-  testimonialEight,
-  testimonialNine,
-  testimonialTen,
+const galleryCategories = [
+  {
+    title: "Donations",
+    description: "Generous contributions supporting our communities",
+    images: [donationOne, donationTwo, donationThree, donationFour, donationFive, donationSix, donationSeven, donationEight, donationNine, donationTen, donationEleven, donationTwelve, donationThirteen, donationFourteen],
+  },
+  {
+    title: "Free Education",
+    description: "Learning moments and educational programs",
+    images: [educationOne, educationTwo, educationThree, educationFour],
+  },
+  {
+    title: "Children's Home Visits",
+    description: "Connecting with families and children in their communities",
+    images: [testimonialOne, testimonialTwo],
+  },
+  {
+    title: "Sports & Recreation",
+    description: "Games, activities and community gatherings",
+    images: [testimonialThree, testimonialFour, testimonialFive],
+  },
 ];
 
 function Testimonials() {
@@ -61,25 +90,31 @@ function Testimonials() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
-          {testimonials.map((image, index) => (
-            <figure
-              key={image}
-              className={`group overflow-hidden bg-muted ${
-                index === 0 || index === 5 ? "col-span-2 aspect-[16/10]" : "aspect-[4/3]"
-              } ${index === 4 ? "row-span-2 aspect-auto" : ""}`}
-            >
-              <img
-                src={image}
-                alt="Community image shared with Amos Kali Foundation"
-                loading={index < 2 ? "eager" : "lazy"}
-                width={index === 4 ? 1000 : 1600}
-                height={index === 4 ? 1500 : 1200}
-                className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.035]"
-              />
-            </figure>
-          ))}
-        </div>
+        {galleryCategories.map((category) => (
+          <div key={category.title} className="mt-16">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-semibold text-primary">{category.title}</h3>
+              <p className="mt-2 text-muted-foreground">{category.description}</p>
+            </div>
+            <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+              {category.images.map((image, index) => (
+                <figure
+                  key={`${category.title}-${index}`}
+                  className="group overflow-hidden bg-muted aspect-[4/3]"
+                >
+                  <img
+                    src={image}
+                    alt={`${category.title} image ${index + 1}`}
+                    loading="lazy"
+                    width={1600}
+                    height={1200}
+                    className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.035]"
+                  />
+                </figure>
+              ))}
+            </div>
+          </div>
+        ))}
       </section>
 
       <section className="border-y border-border bg-primary py-14 text-primary-foreground">

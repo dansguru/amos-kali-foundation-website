@@ -45,22 +45,22 @@ function Programs() {
         {programs.map(({ title, description, icon: Icon }, i) => (
           <div
             key={title}
-            className="grid gap-6 rounded-lg border border-border bg-card p-7 shadow-card md:grid-cols-[auto_1fr_auto] md:items-center md:p-9"
+            className="grid gap-6 rounded-lg border border-border bg-card p-6 shadow-card sm:p-7 md:grid-cols-[auto_1fr_auto] md:items-center md:gap-8"
           >
-            <span className="grid h-14 w-14 place-items-center rounded-md bg-primary text-primary-foreground">
-              <Icon className="h-6 w-6" />
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-md bg-primary text-primary-foreground sm:h-14 sm:w-14">
+              <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
             </span>
             <div className="min-w-0">
               <p className="text-xs font-semibold tracking-widest text-muted-foreground">
                 0{i + 1}
               </p>
-              <h2 className="mt-1 font-display text-xl font-bold">{title}</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">{description}</p>
+              <h2 className="mt-1 font-display text-lg sm:text-xl font-bold">{title}</h2>
+              <p className="mt-2 max-w-2xl text-xs sm:text-sm leading-relaxed text-muted-foreground">{description}</p>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {details[title]?.map((d) => (
                   <li
                     key={d}
-                    className="rounded-md border border-border bg-accent-soft px-3 py-1 text-xs font-medium text-foreground/75"
+                    className="rounded-md border border-border bg-accent-soft px-2.5 py-1 text-xs font-medium text-foreground/75"
                   >
                     {d}
                   </li>
@@ -69,7 +69,7 @@ function Programs() {
             </div>
             <Link
               to="/donate"
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-6 py-3 text-sm font-bold text-accent-foreground transition-colors hover:bg-[#e9870a]"
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-md bg-accent px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-accent-foreground transition-colors hover:bg-[#e9870a] whitespace-nowrap"
             >
               Support This <ArrowRight className="h-4 w-4" />
             </Link>
